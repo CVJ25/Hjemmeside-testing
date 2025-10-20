@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 191 18% 97%;
+    --foreground: 200 35% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 35% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 35% 6%;
+
+    --primary: 186 71% 52%;
+    --primary-foreground: 200 35% 6%;
+
+    --secondary: 261 100% 67%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 204 16% 58%;
+    --muted-foreground: 204 16% 48%;
+
+    --accent: 186 71% 52%;
+    --accent-foreground: 200 35% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 202 27% 92%;
+    --input: 202 27% 92%;
+    --ring: 186 71% 52%;
+
+    --radius: 1rem;
+    
+    /* Custom portfolio colors */
+    --primary-hover: 185 86% 32%;
+    --shadow: 0 10px 30px rgba(11, 14, 16, 0.08);
+    --gradient-aurora: linear-gradient(135deg, hsl(185, 86%, 32%), hsl(186, 71%, 52%) 35%, hsl(261, 100%, 67%));
+  }
+
+  .dark {
+    --background: 200 35% 6%;
+    --foreground: 202 27% 93%;
+
+    --card: 205 25% 9%;
+    --card-foreground: 202 27% 93%;
+
+    --popover: 205 25% 9%;
+    --popover-foreground: 202 27% 93%;
+
+    --primary: 166 100% 57%;
+    --primary-foreground: 200 35% 6%;
+
+    --secondary: 266 91% 57%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 206 13% 64%;
+    --muted-foreground: 206 13% 64%;
+
+    --accent: 166 100% 57%;
+    --accent-foreground: 200 35% 6%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 204 14% 18%;
+    --input: 204 14% 18%;
+    --ring: 166 100% 57%;
+    
+    /* Custom portfolio colors for dark mode */
+    --primary-hover: 183 100% 54%;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --gradient-aurora: linear-gradient(135deg, hsl(166, 100%, 57%), hsl(183, 100%, 54%) 35%, hsl(266, 91%, 57%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    backdrop-filter: saturate(140%) blur(12px);
+    background: hsl(var(--background) / 0.75);
+  }
+  
+  .dark .glass-nav {
+    background: hsl(var(--background) / 0.85);
+  }
+  
+  .aurora-glow {
+    position: absolute;
+    inset: -30% 0 auto 0;
+    height: 140px;
+    background: var(--gradient-aurora);
+    filter: blur(60px);
+    opacity: 0.25;
+    z-index: -1;
+  }
+  
+  .card-shadow {
+    box-shadow: var(--shadow);
+  }
+  
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(11, 14, 16, 0.12);
+  }
+}
